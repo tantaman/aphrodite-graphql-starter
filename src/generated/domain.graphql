@@ -1,0 +1,38 @@
+# SIGNED-SOURCE: <90cb342eb8b1a326d45507b668dc5b72>
+type PageInfo {
+  hasPreviousPage: Boolean!
+  hasNextPage: Boolean!
+  startCursor: String!
+  endCursor: String!
+}
+
+
+type TodoList {
+  id: ID!
+  name: String!
+  todos(first: Int, last: Int, before: String, after: String): TodoListToTodosConnection
+}
+
+type Todo {
+  id: ID!
+  text: String!
+  complete: Boolean!
+}
+
+type TodoListToTodosConnection {
+  edges: [TodoListToTodosEdge]
+  pageInfo: PageInfo!
+  count: Int
+}
+
+type TodoListToTodosEdge {
+  node: TodoList
+  cursor: String
+}
+
+
+
+type Query {
+  todoList(id: ID!): TodoList
+  todoLists(ids: [ID!]!): [TodoList]!
+}

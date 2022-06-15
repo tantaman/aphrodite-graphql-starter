@@ -1,0 +1,44 @@
+engine: sqlite
+db: test
+
+TodoList as Node {
+  id: ID<TodoList>
+  name: string
+} & OutboundEdges {
+  todos: Edge<Todo.listId>
+} & Mutations {
+  create as Create {
+    name
+  }
+} & GraphQL {
+  read {
+    id
+    name
+    todos
+  }
+  root
+}
+
+Todo as Node {
+  id: ID<Todo>
+  text: string
+  listId: ID<TodoList>
+  complete: bool
+} & Mutations {
+  create as Create {
+    text
+    list: TodoList
+  }
+
+  setComplete as Update {
+    complete
+  }
+
+  delete as Delete {}
+} & GraphQL {
+  read {
+    id
+    text
+    complete
+  }
+}
