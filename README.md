@@ -1,4 +1,4 @@
-# Aphrodite Node Starter
+# Aphrodite GraphQL Starter
 
 This provides a basic NodeJS example project that uses `Aphrodite` and integrates `GraphQL`.
 
