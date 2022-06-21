@@ -1,4 +1,4 @@
-// SIGNED-SOURCE: <ddddb78c2c073a6bb8f378ed6c81ed17>
+// SIGNED-SOURCE: <4d96604e34b350e1e85e9eb5d9d95122>
 /**
  * AUTO-GENERATED FILE
  * Do not modify. Update your schema and re-generate for changes.
@@ -7,8 +7,8 @@
  */
 import { default as s } from "./TodoSpec.js";
 import { P } from "@aphro/runtime-ts";
-import { Model } from "@aphro/runtime-ts";
-import { ModelSpec } from "@aphro/runtime-ts";
+import { Node } from "@aphro/runtime-ts";
+import { NodeSpecWithCreate } from "@aphro/runtime-ts";
 import { SID_of } from "@aphro/runtime-ts";
 import TodoQuery from "./TodoQuery.js";
 import { Context } from "@aphro/runtime-ts";
@@ -21,8 +21,8 @@ export type Data = {
   complete: boolean;
 };
 
-export default class Todo extends Model<Data> {
-  readonly spec = s as ModelSpec<this, Data>;
+export default class Todo extends Node<Data> {
+  readonly spec = s as NodeSpecWithCreate<this, Data>;
 
   get id(): SID_of<this> {
     return this.data.id as SID_of<this>;
@@ -44,7 +44,7 @@ export default class Todo extends Model<Data> {
     return TodoQuery.create(ctx);
   }
 
-  static async genx(ctx: Context, id: SID_of<Todo>): Promise<Todo | null> {
+  static async genx(ctx: Context, id: SID_of<Todo>): Promise<Todo> {
     const existing = ctx.cache.get(id);
     if (existing) {
       return existing;

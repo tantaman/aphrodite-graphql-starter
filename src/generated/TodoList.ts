@@ -1,4 +1,4 @@
-// SIGNED-SOURCE: <8ccbf4256b861b0e57bc5f1e143ad234>
+// SIGNED-SOURCE: <76fa380c10ae86e029bbd203a84b8a8b>
 /**
  * AUTO-GENERATED FILE
  * Do not modify. Update your schema and re-generate for changes.
@@ -7,8 +7,8 @@
  */
 import { default as s } from "./TodoListSpec.js";
 import { P } from "@aphro/runtime-ts";
-import { Model } from "@aphro/runtime-ts";
-import { ModelSpec } from "@aphro/runtime-ts";
+import { Node } from "@aphro/runtime-ts";
+import { NodeSpecWithCreate } from "@aphro/runtime-ts";
 import { SID_of } from "@aphro/runtime-ts";
 import TodoListQuery from "./TodoListQuery.js";
 import { Context } from "@aphro/runtime-ts";
@@ -20,8 +20,8 @@ export type Data = {
   name: string;
 };
 
-export default class TodoList extends Model<Data> {
-  readonly spec = s as ModelSpec<this, Data>;
+export default class TodoList extends Node<Data> {
+  readonly spec = s as NodeSpecWithCreate<this, Data>;
 
   get id(): SID_of<this> {
     return this.data.id as SID_of<this>;
@@ -39,10 +39,7 @@ export default class TodoList extends Model<Data> {
     return TodoListQuery.create(ctx);
   }
 
-  static async genx(
-    ctx: Context,
-    id: SID_of<TodoList>
-  ): Promise<TodoList | null> {
+  static async genx(ctx: Context, id: SID_of<TodoList>): Promise<TodoList> {
     const existing = ctx.cache.get(id);
     if (existing) {
       return existing;

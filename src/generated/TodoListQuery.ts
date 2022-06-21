@@ -1,4 +1,4 @@
-// SIGNED-SOURCE: <8575766a9dee097b428158777fdfd761>
+// SIGNED-SOURCE: <65955b1c5edc83ff9c67a9716e9fd083>
 /**
  * AUTO-GENERATED FILE
  * Do not modify. Update your schema and re-generate for changes.
@@ -11,8 +11,12 @@ import { QueryFactory } from "@aphro/runtime-ts";
 import { modelLoad } from "@aphro/runtime-ts";
 import { filter } from "@aphro/runtime-ts";
 import { Predicate } from "@aphro/runtime-ts";
+import { take } from "@aphro/runtime-ts";
+import { orderBy } from "@aphro/runtime-ts";
 import { P } from "@aphro/runtime-ts";
 import { ModelFieldGetter } from "@aphro/runtime-ts";
+import { Expression } from "@aphro/runtime-ts";
+import { EmptyQuery } from "@aphro/runtime-ts";
 import { SID_of } from "@aphro/runtime-ts";
 import TodoList from "./TodoList.js";
 import { Data } from "./TodoList.js";
@@ -29,22 +33,26 @@ export default class TodoListQuery extends DerivedQuery<TodoList> {
     );
   }
 
+  static empty(ctx: Context) {
+    return new TodoListQuery(ctx, new EmptyQuery(ctx));
+  }
+
+  protected derive(expression: Expression): TodoListQuery {
+    return new TodoListQuery(this.ctx, this, expression);
+  }
+
   static fromId(ctx: Context, id: SID_of<TodoList>) {
     return this.create(ctx).whereId(P.equals(id));
   }
 
   whereId(p: Predicate<Data["id"]>) {
-    return new TodoListQuery(
-      this.ctx,
-      this,
+    return this.derive(
       filter(new ModelFieldGetter<"id", Data, TodoList>("id"), p)
     );
   }
 
   whereName(p: Predicate<Data["name"]>) {
-    return new TodoListQuery(
-      this.ctx,
-      this,
+    return this.derive(
       filter(new ModelFieldGetter<"name", Data, TodoList>("name"), p)
     );
   }
@@ -53,6 +61,22 @@ export default class TodoListQuery extends DerivedQuery<TodoList> {
       this.ctx,
       QueryFactory.createHopQueryFor(this.ctx, this, spec.outboundEdges.todos),
       modelLoad(this.ctx, TodoSpec.createFrom)
+    );
+  }
+
+  take(n: number) {
+    return new TodoListQuery(this.ctx, this, take(n));
+  }
+
+  orderById(direction: "asc" | "desc" = "asc") {
+    return this.derive(
+      orderBy(new ModelFieldGetter<"id", Data, TodoList>("id"), direction)
+    );
+  }
+
+  orderByName(direction: "asc" | "desc" = "asc") {
+    return this.derive(
+      orderBy(new ModelFieldGetter<"name", Data, TodoList>("name"), direction)
     );
   }
 }
