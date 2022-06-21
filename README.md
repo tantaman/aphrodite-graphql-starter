@@ -17,6 +17,10 @@ Known issues:
 
 # Getting Started
 
+GitPod: https://gitpod.io/#git@github.com:tantaman/aphrodite-graphql-starter.git
+
+Or --
+
 First, clone this repository
 
 ```bash
