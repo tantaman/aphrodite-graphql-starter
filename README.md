@@ -2,7 +2,7 @@
 
 This provides a basic NodeJS example project that uses `Aphrodite` and integrates `GraphQL`.
 
-See [`src/domain.aphro`](https://github.com/tantaman/aphrodite-graphql-starter/blob/main/src/domain.aphro) for an example of how `& GraphQL` extensions are used.
+See [`src/domain.aphro`]([https://github.com/tantaman/aphrodite-graphql-starter/blob/main/src/domain.aphro](https://github.com/tantaman/aphrodite-graphql-starter/blob/main/src/domain.aphro#L13-L20)) for an example of how `& GraphQL` extensions are used.
 
 **Note -- I'm a 1 man show at the moment and this is a WIP that is still buggy.**
 
