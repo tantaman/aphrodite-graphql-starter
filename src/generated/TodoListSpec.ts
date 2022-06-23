@@ -1,4 +1,4 @@
-// SIGNED-SOURCE: <7ce0ddb2982aad7d385b09af5b470df0>
+// SIGNED-SOURCE: <49f7374b3b6e30b3813fa0adf2d23b29>
 /**
  * AUTO-GENERATED FILE
  * Do not modify. Update your schema and re-generate for changes.
@@ -15,7 +15,7 @@ import { Data } from "./TodoList.js";
 const spec: NodeSpecWithCreate<TodoList, Data> = {
   type: "node",
   createFrom(ctx: Context, data: Data) {
-    const existing = ctx.cache.get(data["id"]);
+    const existing = ctx.cache.get(data["id"], TodoList.name);
     if (existing) {
       return existing;
     }

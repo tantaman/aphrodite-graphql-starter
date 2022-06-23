@@ -1,13 +1,14 @@
 {
   "type": "module",
   "dependencies": {
-    "@aphro/runtime-ts": "^0.1.0",
+    "@aphro/runtime-ts": "^0.1.4",
     "@databases/sqlite": "^3.0.0",
-    "@graphql-tools/schema": "^8.3.14",
-    "@graphql-yoga/node": "^2.9.2"
+    "@graphql-tools/schema": "^8.4.0",
+    "@graphql-yoga/node": "^2.9.2",
+    "graphql": "^16.5.0"
   },
   "devDependencies": {
-    "@aphro/codegen-cli": "^0.1.0",
+    "@aphro/codegen-cli": "^0.1.4",
     "cross-env": "^7.0.3",
     "typescript": "^4.7.4"
   },

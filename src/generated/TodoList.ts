@@ -1,4 +1,4 @@
-// SIGNED-SOURCE: <76fa380c10ae86e029bbd203a84b8a8b>
+// SIGNED-SOURCE: <942d89fd4e3db4b9a8513130d795b421>
 /**
  * AUTO-GENERATED FILE
  * Do not modify. Update your schema and re-generate for changes.
@@ -40,7 +40,7 @@ export default class TodoList extends Node<Data> {
   }
 
   static async genx(ctx: Context, id: SID_of<TodoList>): Promise<TodoList> {
-    const existing = ctx.cache.get(id);
+    const existing = ctx.cache.get(id, TodoList.name);
     if (existing) {
       return existing;
     }
@@ -51,7 +51,7 @@ export default class TodoList extends Node<Data> {
     ctx: Context,
     id: SID_of<TodoList>
   ): Promise<TodoList | null> {
-    const existing = ctx.cache.get(id);
+    const existing = ctx.cache.get(id, TodoList.name);
     if (existing) {
       return existing;
     }

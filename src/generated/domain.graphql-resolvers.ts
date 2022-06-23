@@ -27,6 +27,8 @@ export const resolvers = {
       info
     ): Promise<TodoList[]> {
       return await TodoList.queryAll(ctx.aphrodite)
+        // TODO
+        // @ts-ignore
         .whereId(P.in(new Set(args.ids)))
         .gen();
     },

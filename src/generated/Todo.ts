@@ -1,4 +1,4 @@
-// SIGNED-SOURCE: <4d96604e34b350e1e85e9eb5d9d95122>
+// SIGNED-SOURCE: <1661e29bb16b7b9228ce1c544ea9f203>
 /**
  * AUTO-GENERATED FILE
  * Do not modify. Update your schema and re-generate for changes.
@@ -45,7 +45,7 @@ export default class Todo extends Node<Data> {
   }
 
   static async genx(ctx: Context, id: SID_of<Todo>): Promise<Todo> {
-    const existing = ctx.cache.get(id);
+    const existing = ctx.cache.get(id, Todo.name);
     if (existing) {
       return existing;
     }
@@ -53,7 +53,7 @@ export default class Todo extends Node<Data> {
   }
 
   static async gen(ctx: Context, id: SID_of<Todo>): Promise<Todo | null> {
-    const existing = ctx.cache.get(id);
+    const existing = ctx.cache.get(id, Todo.name);
     if (existing) {
       return existing;
     }
