@@ -6,7 +6,7 @@
  * `END-MANUAL-SECTION` markers.
  */
 import TodoList from "./TodoList.js";
-import { Context } from "@aphro/runtime-ts";
+import { Context, SID_of } from "@aphro/runtime-ts";
 import { P } from "@aphro/runtime-ts";
 
 export const resolvers = {
@@ -28,8 +28,7 @@ export const resolvers = {
     ): Promise<TodoList[]> {
       return await TodoList.queryAll(ctx.aphrodite)
         // TODO
-        // @ts-ignore
-        .whereId(P.in(new Set(args.ids)))
+        .whereId(P.in(new Set<SID_of<TodoList>>(args.ids)))
         .gen();
     },
   },
